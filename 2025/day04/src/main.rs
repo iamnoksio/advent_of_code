@@ -1,19 +1,16 @@
-use std::fs::File;
-use std::io::{BufRead, BufReader};
-
-mod lib;
+use day04::{part1, part2};
+use std::io::BufRead;
 
 fn main() -> std::io::Result<()> {
-    let file = File::open("src/input.txt")?;
-    let reader = BufReader::new(file);
+    let reader = util::file_read("src/input.txt")?;
 
     let grid: Vec<Vec<char>> = reader
         .lines()
         .map(|line| line.unwrap().chars().collect())
         .collect();
 
-    println!("Part 1: {}", lib::part1(&grid));
-    println!("Part 2: {}", lib::part2(grid));
+    println!("Part 1: {}", part1(&grid));
+    println!("Part 2: {}", part2(grid));
 
     Ok(())
 }
