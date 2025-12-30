@@ -2,9 +2,7 @@ use day01::{Rotation, rotate, rotate_and_count};
 use std::io::BufRead;
 
 fn main() -> std::io::Result<()> {
-    let path = "src/rotation_list.txt";
-    let file = std::fs::File::open(path)?;
-    let reader = std::io::BufReader::new(file);
+    let reader = util::file_read("src/rotation_list.txt")?;
 
     let mut s_index: u8 = 50;
     let mut s_zeros = 0;

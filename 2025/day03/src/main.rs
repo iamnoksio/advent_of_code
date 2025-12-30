@@ -2,9 +2,7 @@ use day03::{add_decimal_strings, biggest_12_digit_joltage, biggest_numbers_from_
 use std::io::BufRead;
 
 fn main() -> std::io::Result<()> {
-    let path = "src/input.txt";
-    let file = std::fs::File::open(path)?;
-    let reader = std::io::BufReader::new(file);
+    let reader = util::file_read("src/input.txt")?;
     let mut total_tens: u16 = 0;
     let mut total_twelves = String::from("0");
 
